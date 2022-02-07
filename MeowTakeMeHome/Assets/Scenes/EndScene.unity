@@ -1110,6 +1110,7 @@ GameObject:
   - component: {fileID: 7975756494654742184}
   - component: {fileID: 7975756494654742190}
   - component: {fileID: 7975756494654742186}
+  - component: {fileID: 7975756494654742187}
   m_Layer: 0
   m_Name: CatSleep
   m_TagString: Untagged
@@ -1138,6 +1139,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &7975756494654742187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7975756494654742185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b217b0add4d42f469ee917c442854b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &7975756494654742190
 BoxCollider2D:
   m_ObjectHideFlags: 0
