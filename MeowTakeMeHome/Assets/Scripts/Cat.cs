@@ -18,7 +18,9 @@ public class Cat : MonoBehaviour
     public Sprite catUp;
     public Sprite catDwn;
 
-    public bool isGrounded = true; 
+    public bool isGrounded = true;
+
+    private int catDir = 1;
     // [SerializeField] private Animator animator; 
 
     public enum CatState {Climbing, Walking,
@@ -61,12 +63,12 @@ public class Cat : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow) && rigidcat.velocity.y < maxSpeed)
         {
-            rigidcat.AddForce(Vector2.up * move, ForceMode2D.Force); //adding the force (left) with an amplitude of move (the variable move)
+            rigidcat.AddForce(Vector2.up * catDir * move, ForceMode2D.Force); //adding the force (up) with an amplitude of move (the variable move)
         }
         
         if (Input.GetKey(KeyCode.LeftArrow) && rigidcat.velocity.y > -maxSpeed)
         {
-            rigidcat.AddForce(Vector2.down * move, ForceMode2D.Force); //adding the force (left) with an amplitude of move (the variable move)
+            rigidcat.AddForce(Vector2.down * catDir * move, ForceMode2D.Force); //adding the force (left) with an amplitude of move (the variable move)
         }
 
         if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
@@ -83,7 +85,7 @@ public class Cat : MonoBehaviour
             rigidcat.AddForce(Vector2.left * move,
                 ForceMode2D.Force); //adding the force (left) with an amplitude of move (the variable move)
             GetComponent<SpriteRenderer>().sprite = catL; // giving the sprite renderer's sprite the left sprite picture
-            // GetComponent<SpriteRenderer>().flipX = false; // setting the sprite renderer's flipX value to false to make sure the Cat's sprite is facing left
+            catDir = -1;
         }
 
         if (Input.GetKey(KeyCode.RightArrow) && rigidcat.velocity.x < maxSpeed) //detecting right arrow button
@@ -91,7 +93,7 @@ public class Cat : MonoBehaviour
             rigidcat.AddForce(Vector2.right * move,
                 ForceMode2D.Force); // adding the force (right) with an amplitude of move (the variable move)
             GetComponent<SpriteRenderer>().sprite = catR; //  giving the sprite renderer's sprite the right sprite picture
-            // GetComponent<SpriteRenderer>().flipX=false; // / setting the sprite renderer's flipX value to true to make sure the Cat's sprite is facing right
+            catDir = 1;
         }
 
         if (Input.GetKey(KeyCode.DownArrow)) // detecting down arrow button

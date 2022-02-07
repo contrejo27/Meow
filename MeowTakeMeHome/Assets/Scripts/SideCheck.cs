@@ -11,7 +11,7 @@ public class SideCheck : MonoBehaviour
         cat = FindObjectOfType<Cat>();
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Tree"))
         {
@@ -21,7 +21,7 @@ public class SideCheck : MonoBehaviour
    
     private void OnTriggerExit2D(Collider2D other)
     {  
-        if (other.CompareTag("Tree"))
+        if (other.CompareTag("Tree") && cat.currentCatState != Cat.CatState.Walking)
         {
             cat.SwitchState(Cat.CatState.Jumping);;
         }

@@ -29,9 +29,9 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(currentLevel+1);
     }
 
-    public void ResetLevel()
+    public void ResetGame()
     {
-        SceneManager.LoadScene(currentLevel);
+        SceneManager.LoadScene(0);
     }
 
     public void LoseLevel()

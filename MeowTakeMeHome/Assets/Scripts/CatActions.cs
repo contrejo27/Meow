@@ -23,6 +23,11 @@ public class CatActions : MonoBehaviour
             if(cat.hasKey){
                 FindObjectOfType<LevelManager>().NextLevel();
             }
+            else
+            {
+                FindObjectOfType<MenuManager>().ShowNotification("The door is locked!");
+            }
+            
         }
     }
 
